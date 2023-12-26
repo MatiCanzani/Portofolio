@@ -1,0 +1,34 @@
+---
+import NavButton from "./NavButton.astro";
+import { Image } from "astro:assets";
+import X from "../images/icons/x.svg";
+import LinkedIn from "../images/icons/linkedin.svg";
+import Github from "../images/icons/github.svg";
+import Instagram from "../images/icons/instagram.svg";
+---
+
+<!-- <nav class="z-10 fixed left-0 top-2 py-2 flex flex-col nowrap w-3rem bg-fixed h-screen justify-around items-center"> -->
+<nav class="flex flex-col h-screen justify-between items-center ml-4">
+  <div class="text-slate-50 text-3xl border p-1" transition:name="logo">
+    <a href="/" class="p-1" transition:animate="initial">MC</a>
+  </div>
+  <div class="flex justify-around flex-col h-2/4">
+    <NavButton link="/who">who</NavButton>
+    <NavButton link="/works">works</NavButton>
+    <NavButton link="/contact">contact</NavButton>
+  </div>
+  <div class="flex flex-col h-1/4 gap-2">
+    <a href="/" class="-rotate-90 hover:scale-150 ease-in-out">
+      <Image src={Github} alt="Github" width="24" height="24" />
+    </a>
+    <a href="/" class="-rotate-90 hover:scale-150 ease-in-out">
+      <Image src={LinkedIn} alt="LinkedIn" width="24" height="24" />
+    </a>
+    <a href="/" class="-rotate-90 hover:scale-150 ease-in-out">
+      <Image src={X} alt="X" width="24" height="24" />
+    </a>
+    <a href="/" class="-rotate-90 hover:scale-150 ease-in-out">
+      <Image src={Instagram} alt="Instagram" width="24" height="24" />
+    </a>
+  </div>
+</nav>

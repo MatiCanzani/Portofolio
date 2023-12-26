@@ -1,0 +1,78 @@
+---
+import Logo from "./logo/Logo.astro";
+---
+
+<script>
+  import { gsap } from "gsap";
+
+  import { MotionPathPlugin } from "gsap/dist/MotionPathPlugin";
+
+  gsap.registerPlugin(MotionPathPlugin);
+
+
+  gsap.from("#who", {
+    duration: 1,
+    opacity: 0,
+    delay: 2.5,
+    ease: "bounce.out",
+  });
+
+  gsap.from("#works", {
+    duration: 1,
+    opacity: 0,
+    ease: "power2.out", // or another ease
+    delay: 3,
+  });
+
+  gsap.from("#contact", {
+    duration: 1,
+    opacity: 0,
+    ease: "power2.out", // or another ease
+    delay: 3.5,
+  });
+</script>
+
+<div class="w-full h-screen">
+  <div class="flex flex-row justify-between items-center h-full">
+    <div
+      class="flex flex-row justify-center items-center gap-2"
+      transition:name="logo"
+      id="logo"
+    >
+      <a href="/">
+        <Logo />
+      </a>
+    </div>
+    <div>
+      <a href="/who" id="who">
+        <h2
+          transition:name="who"
+          class="uppercase text-slate-50 text-[6rem] font-extrabold text-shadow hover:skew-x-6 hover:scale-110 transition duration-150 ease-in-out"
+        >
+          <div
+            class="group-hover:bg-gray-300 transition duration-300 ease-in-out"
+          >
+            who am i ?
+          </div>
+        </h2>
+      </a>
+      <a href="/works" id="works">
+        <h2
+          class="uppercase text-slate-50 text-[6rem] font-extrabold text-shadow hover:skew-x-6 hover:scale-110 transition duration-150 ease-in-out"
+          transition:name="works"
+        >
+          Some works
+        </h2>
+      </a>
+
+      <a href="/contact" id="contact">
+        <h2
+          class="uppercase text-slate-50 text-[6rem] font-extrabold text-shadow hover:skew-x-6 hover:scale-110 transition duration-150 ease-in-out"
+          transition:name="contact"
+        >
+          contact
+        </h2>
+      </a>
+    </div>
+  </div>
+</div>

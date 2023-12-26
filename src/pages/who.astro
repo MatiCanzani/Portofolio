@@ -1,0 +1,50 @@
+---
+import Layout from "../layouts/PageLayout.astro";
+import { fade } from "astro:transitions";
+---
+
+<Layout title="Mati Canzani-about">
+  <section class="flex justify-center flex-col mt-8">
+    <div class="flex justify-center items-end" transition:name="who">
+      <h2 class="uppercase text-slate-50 text-[3rem] font-bold z-10 absolute">
+        Who am I ?
+      </h2>
+      <span class="uppercase text-[#33383eab] text-[5rem] font-extrabold">
+        Who am I ?
+      </span>
+    </div>
+
+    <article transition:animate={fade({ duration: "0.6s" })} class="flex justify-center flex-col px-24 gap-4 max-w-5xl mx-auto">
+      <h3 class="text-slate-50 text-  xl my-10 tracking-wide">
+        I'm <spam class="font-extrabold tracking-wide text-2xl">Mati</spam> Canzani, a <spam class="font-extrabold tracking-wide text-2xl">web developer</spam> and problem solver.
+      </h3>
+
+      <p class="text-slate-50 italic font-medium text-xl tracking-wide">
+        I craft beautiful, engaging experiences for the digital world. From
+        e-commerce journeys to landing page masterpieces, I weave modern designs
+        and cutting-edge technologies into seamless realities.
+      </p>
+
+      <p class="text-slate-50 italic font-medium text-xl tracking-wide">
+        Challenges are my playground. I relish transforming complex concepts
+        into intuitive interfaces that flow.
+      </p>
+
+      <p class="text-slate-50 italic font-medium text-xl tracking-wide">
+        I'm not just a <code class="italic">coder</code>. I'm a problem solver, an innovator, a pixel
+        alchemist. My toolbox brims with the latest frameworks, smooth
+        animations, and a relentless pursuit of quality. I deliver polished
+        creations that surpass expectations.
+      </p>
+
+      <p class="text-slate-50 italic font-medium text-xl tracking-wide">
+        Want to build something extraordinary? Let's collaborate. I'm Mati
+        Canzani, and your vision is my canvas.
+      </p>
+      <p class="text-slate-50 font-medium text-xl tracking-wide">
+        <spam class="font-bold tracking-wide">Skills: </spam> Frontend developer, modern design, innovative solutions,
+        cutting-edge technologies, high-quality, collaborative.
+      </p>
+    </article>
+  </section>
+</Layout>

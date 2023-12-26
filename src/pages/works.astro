@@ -1,0 +1,18 @@
+---
+import Cards from '../components/Cards.astro';
+import Layout from '../layouts/PageLayout.astro';
+---
+
+<Layout title="Mati Canzani-works">
+  <section class="flex justify-center flex-col mt-8">
+    <div class="flex justify-center items-end" transition:name="works">
+      <h2 class="uppercase text-slate-50 text-[3rem] font-bold z-10 absolute">
+        Some works
+      </h2>
+      <span class="uppercase text-[#33383eab] text-[5rem] font-extrabold">some works</span>
+    </div>
+    <div>
+      <Cards />
+    </div>
+  </section>
+</Layout>

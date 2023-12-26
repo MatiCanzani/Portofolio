@@ -1,0 +1,128 @@
+---
+import { Image } from 'astro:assets';
+import Project1 from 'https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg'
+---
+<script>
+  // let cursor = document.getElementById("cursor");
+  // let cards = document.getElementsByClassName("inner");
+  // for (let i = 0; i < cards.length; i++) {
+  //   cards[i].addEventListener("mousemove", function (event) {
+  //     cursor.classList.add("active");
+  //   });
+  //   cards[i].addEventListener("mouseover", function (event) {
+  //     cursor.classList.add("active");
+  //   });
+
+  //   cards[i].addEventListener("mouseout", function (event) {
+  //     cursor.classList.remove("active");
+  //   });
+  // }
+
+  import Lenis from "@studio-freight/lenis";
+  import { gsap } from "gsap/dist/gsap";
+
+  import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const lenis = new Lenis();
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+
+  requestAnimationFrame(raf);
+
+  lenis.on("scroll", ScrollTrigger.update);
+
+  gsap.ticker.add((time) => {
+    lenis.raf(time * 1000);
+  });
+
+  gsap.ticker.lagSmoothing(0);
+
+  gsap.to("#images", {
+    yPercent: 100,
+    ease: "none",
+    scrollTrigger: {
+      trigger: "#section-content",
+      start: "top bottom",
+      end: "top top",
+      scrub: true,
+    },
+  });
+</script>
+
+<section
+  id="content"
+  class="w-full overflow-visible flex-col justify-center"
+>
+  <section id="images" class=" relative w-4/6 h-auto z-0 flex mx-auto">
+    <Image
+      class="w-full h-full"
+      data-speed="0.8"
+      src='https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg'
+      alt="Project1"
+      height={371}
+      width={479}
+    />
+  </section>
+  <section id="section-content" class=" relative w-full h-screen bg-[#C4C1B6] z-10">
+    <h2 class="text-3xl font-bold mb-4">Section Content Heading</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac libero sed
+      lectus fermentum varius. Nulla facilisi. Proin euismod libero nec justo
+      ultrices, non euismod ex ultrices. Fusce ut dolor nec ligula facilisis
+      euismod ac at mi. Nulla facilisi. Integer tristique augue vel justo
+      euismod, vel interdum libero aliquam.
+    </p>
+  </section>
+  <!--       
+      <div>
+        <img
+          class="w-full h-full object-cover"
+          data-speed="0.8"
+          src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg"
+          alt=""
+        />
+      </div>
+      <div>
+        <img
+          class="w-full h-full object-cover"
+          data-speed="0.8"
+          src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg"
+          alt=""
+        />
+      </div>
+      <div>
+        <img
+          class="w-full h-full object-cover"
+          data-speed="0.8"
+          src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg"
+          alt=""
+        />
+      </div>
+      <div>
+        <img
+          class="w-full h-full object-cover"
+          data-speed="0.8"
+          src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg"
+          alt=""
+        />
+      </div> -->
+</section>
+
+<style>
+  html.lenis {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+</style>
