@@ -32,14 +32,14 @@ import Logo from "./logo/Logo.astro";
   });
 </script>
 
-<div class="w-full h-screen">
+<section class="w-full h-screen">
   <div class="flex flex-row justify-between items-center h-full">
     <div
       class="flex flex-row justify-center items-center gap-2"
       transition:name="logo"
       id="logo"
     >
-      <a href="/">
+      <a href="/" aria-label="back to home">
         <Logo />
       </a>
     </div>
@@ -75,4 +75,4 @@ import Logo from "./logo/Logo.astro";
       </a>
     </div>
   </div>
-</div>
+</section>

@@ -20,6 +20,9 @@ export default {
         circle: "url(../../src/images/icons/circle.svg), pointer",
         big: "url(../../src/images/icons/circle-dot.svg), pointer",
       },
+      animation: {
+        'spin-slow': 'spin 4s linear infinite',
+      }
     },
   },
   plugins: [

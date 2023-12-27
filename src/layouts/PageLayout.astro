@@ -24,21 +24,30 @@ import Cursor from "../components/Cursor";
   </head>
   <body>
     <Cursor client:load transition:persist="cursor" />
-    <Header transition:persist="header"/>
-    <main class="container 2xl mx-auto px-4">
+    <Header transition:persist="header" />
+    <main class="flex mx-auto">
       <slot />
     </main>
-  </body><style is:global>
-    html {
-      font-family: "Nunito Sans Variable", sans-serif;
-      background: #181a1d;
-      background-image: url("../images/noise.svg");
-      background-size: 12%;
-    }
-    a,
-    html,
-    input {
-      cursor: none;
-    }
-  </style>
+    <style is:global>
+      html {
+        font-family: "Nunito Sans Variable", sans-serif;
+        background: #181a1d;
+        background-image: url("../images/noise.svg");
+        background-size: 12%;
+      }
+      a,
+      html,
+      input {
+        cursor: none;
+      }
+
+      .active {
+        display: none;
+      }
+      .circular {
+        display: block;
+      }
+
+    </style>
+  </body>
 </html>

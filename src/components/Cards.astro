@@ -1,33 +1,45 @@
 ---
-import { Image } from 'astro:assets';
-import Project1 from 'https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg'
+import { Image } from "astro:assets";
 ---
+
 <script>
-  // let cursor = document.getElementById("cursor");
-  // let cards = document.getElementsByClassName("inner");
-  // for (let i = 0; i < cards.length; i++) {
-  //   cards[i].addEventListener("mousemove", function (event) {
-  //     cursor.classList.add("active");
-  //   });
-  //   cards[i].addEventListener("mouseover", function (event) {
-  //     cursor.classList.add("active");
-  //   });
-
-  //   cards[i].addEventListener("mouseout", function (event) {
-  //     cursor.classList.remove("active");
-  //   });
-  // }
-
   import Lenis from "@studio-freight/lenis";
   import { gsap } from "gsap/dist/gsap";
 
   import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+  let cursor = document.getElementById("cursor-outline");
+  let circularCursor = document.getElementById("circular-cursor");
+  let cards = document.getElementsByClassName("inner");
+
+  // Define event listener functions
+  function handleMouseMove(event: any) {
+    cursor?.classList.add("active");
+    circularCursor?.classList.add("circular");
+  }
+
+  function handleMouseOver(event: any) {
+    cursor?.classList.add("active");
+    circularCursor?.classList.add("circular");
+
+  }
+
+  function handleMouseOut(event: any) {
+    cursor?.classList.remove("active");
+    circularCursor?.classList.remove("circular");
+  }
+
+  // Attach event listeners to each card
+  for (let i = 0; i < cards.length; i++) {
+    cards[i]?.addEventListener("mousemove", handleMouseMove);
+    cards[i]?.addEventListener("mouseover", handleMouseOver);
+    cards[i]?.addEventListener("mouseout", handleMouseOut);
+  }
 
   gsap.registerPlugin(ScrollTrigger);
 
   const lenis = new Lenis();
 
-  function raf(time) {
+  function raf(time: any) {
     lenis.raf(time);
     requestAnimationFrame(raf);
   }
@@ -53,12 +65,94 @@ import Project1 from 'https://flowbite.s3.amazonaws.com/docs/gallery/square/imag
     },
   });
 </script>
+<div class="flex items-center flex-wrap gap-10 px-60 mx-auto">
+  <div
+    class="inner relative flex h-[40rem] w-full max-w-[28rem] flex-col items-end justify-center overflow-hidden rounded-xl bg-white bg-clip-border text-center text-gray-700"
+  >
+    <div
+      class="absolute inset-0 m-0 h-full w-full overflow-hidden rounded-none bg-transparent bg-[url('https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg')] bg-cover bg-clip-border bg-center text-gray-700 shadow-none"
+    >
+      <div
+        class="absolute inset-0 w-full h-full to-bg-black-10 bg-gradient-to-t from-black/80 via-black/50"
+      >
+      </div>
+    </div>
+    <div class="relative p-6 px-6 py-14 md:px-12">
+      <h2
+        class="mb-6 block font-sans text-4xl font-medium leading-[1.5] tracking-normal text-white antialiased"
+      >
+        How we design and code open-source projects?
+      </h2>
+    </div>
+  </div>
 
+  <div
+    class="inner relative flex h-[40rem] w-full max-w-[28rem] flex-col items-end justify-center overflow-hidden rounded-xl bg-white bg-clip-border text-center text-gray-700"
+  >
+    <div
+      class="absolute inset-0 m-0 h-full w-full overflow-hidden rounded-none bg-transparent bg-[url('https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg')] bg-cover bg-clip-border bg-center text-gray-700 shadow-none"
+    >
+      <div
+        class="absolute inset-0 w-full h-full to-bg-black-10 bg-gradient-to-t from-black/80 via-black/50"
+      >
+      </div>
+    </div>
+    <div class="relative p-6 px-6 py-14 md:px-12">
+      <h2
+        class="mb-6 block font-sans text-4xl font-medium leading-[1.5] tracking-normal text-white antialiased"
+      >
+        How we design and code open-source projects?
+      </h2>
+    </div>
+  </div>
+
+  <div
+    class="inner relative flex h-[40rem] w-full max-w-[28rem] flex-col items-end justify-center overflow-hidden rounded-xl bg-white bg-clip-border text-center text-gray-700"
+  >
+    <div
+      class="absolute inset-0 m-0 h-full w-full overflow-hidden rounded-none bg-transparent bg-[url('https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg')] bg-cover bg-clip-border bg-center text-gray-700 shadow-none"
+    >
+      <div
+        class="absolute inset-0 w-full h-full to-bg-black-10 bg-gradient-to-t from-black/80 via-black/50"
+      >
+      </div>
+    </div>
+    <div class="relative p-6 px-6 py-14 md:px-12">
+      <h2
+        class="mb-6 block font-sans text-4xl font-medium leading-[1.5] tracking-normal text-white antialiased"
+      >
+        How we design and code open-source projects?
+      </h2>
+    </div>
+  </div>
+
+  <div
+    class="inner relative flex h-[40rem] w-full max-w-[28rem] flex-col items-end justify-center overflow-hidden rounded-xl bg-white bg-clip-border text-center text-gray-700"
+  >
+    <div
+      class="absolute inset-0 m-0 h-full w-full overflow-hidden rounded-none bg-transparent bg-[url('https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg')] bg-cover bg-clip-border bg-center text-gray-700 shadow-none"
+    >
+      <div
+        class="absolute inset-0 w-full h-full to-bg-black-10 bg-gradient-to-t from-black/80 via-black/50"
+      >
+      </div>
+    </div>
+    <div class="relative p-6 px-6 py-14 md:px-12">
+      <h2
+        class="mb-6 block font-sans text-4xl font-medium leading-[1.5] tracking-normal text-white antialiased"
+      >
+        How we design and code open-source projects?
+      </h2>
+    </div>
+  </div>
+</div>
+
+<!-- 
 <section
   id="content"
   class="w-full overflow-visible flex-col justify-center"
 >
-  <section id="images" class=" relative w-4/6 h-auto z-0 flex mx-auto">
+  <section id="images" class=" relative w-4/6 h-auto flex mx-auto">
     <Image
       class="w-full h-full"
       data-speed="0.8"
@@ -68,7 +162,7 @@ import Project1 from 'https://flowbite.s3.amazonaws.com/docs/gallery/square/imag
       width={479}
     />
   </section>
-  <section id="section-content" class=" relative w-full h-screen bg-[#C4C1B6] z-10">
+  <section id="section-content" class=" relative w-screen h-screen z-10 px-60 bg-[#C4C1B6] ">
     <h2 class="text-3xl font-bold mb-4">Section Content Heading</h2>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac libero sed
@@ -77,8 +171,8 @@ import Project1 from 'https://flowbite.s3.amazonaws.com/docs/gallery/square/imag
       euismod ac at mi. Nulla facilisi. Integer tristique augue vel justo
       euismod, vel interdum libero aliquam.
     </p>
-  </section>
-  <!--       
+  </section> -->
+<!--       
       <div>
         <img
           class="w-full h-full object-cover"
@@ -111,7 +205,6 @@ import Project1 from 'https://flowbite.s3.amazonaws.com/docs/gallery/square/imag
           alt=""
         />
       </div> -->
-</section>
 
 <style>
   html.lenis {
