@@ -22,10 +22,10 @@ import Cursor from "../components/Cursor";
     <ViewTransitions />
     <title>{title}</title>
   </head>
-  <body>
+  <body class="w-scree h-screen overflow-hidden">
     <Cursor client:load transition:persist="cursor" />
     <Header transition:persist="header" />
-    <main class="flex mx-auto">
+    <main>
       <slot />
     </main>
     <style is:global>
@@ -34,6 +34,11 @@ import Cursor from "../components/Cursor";
         background: #181a1d;
         background-image: url("../images/noise.svg");
         background-size: 12%;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
       a,
       html,

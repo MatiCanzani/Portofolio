@@ -54,17 +54,18 @@ import { Image } from "astro:assets";
 
   gsap.ticker.lagSmoothing(0);
 
-  gsap.to("#images", {
-    yPercent: 100,
-    ease: "none",
-    scrollTrigger: {
-      trigger: "#section-content",
-      start: "top bottom",
-      end: "top top",
-      scrub: true,
-    },
-  });
+  // gsap.to("#images", {
+  //   yPercent: 100,
+  //   ease: "none",
+  //   scrollTrigger: {
+  //     trigger: "#section-content",
+  //     start: "top bottom",
+  //     end: "top top",
+  //     scrub: true,
+  //   },
+  // });
 </script>
+
 <div class="flex items-center flex-wrap gap-10 px-60 mx-auto">
   <div
     class="inner relative flex h-[40rem] w-full max-w-[28rem] flex-col items-end justify-center overflow-hidden rounded-xl bg-white bg-clip-border text-center text-gray-700"

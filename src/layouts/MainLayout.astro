@@ -21,12 +21,17 @@ import Cursor from "../components/Cursor";
     <ViewTransitions />
     <title>{title}</title>
   </head>
-  <body>
+  <body class="w-scree h-screen overflow-hidden">
     <Cursor client:load transition:persist="cursor" />
-    <main class="container 2xl mx-auto px-4">
+    <main class="container">
       <slot />
     </main>
     <style is:global>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
       html {
         font-family: "Nunito Sans Variable", sans-serif;
         background: #181a1d;
@@ -41,4 +46,3 @@ import Cursor from "../components/Cursor";
     </style>
   </body>
 </html>
-../components/Cursor.jsx

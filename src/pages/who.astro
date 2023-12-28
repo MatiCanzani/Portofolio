@@ -1,50 +1,167 @@
 ---
 import Layout from "../layouts/PageLayout.astro";
 import { fade } from "astro:transitions";
+import Marque from "../components/Marque.astro";
 ---
 
+<script>
+  import Lenis from "@studio-freight/lenis";
+  import { gsap } from "gsap/dist/gsap";
+
+  import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+
+  const lenis = new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+  });
+
+  function raf(time: any) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+
+  requestAnimationFrame(raf);
+
+  const sectionOne = document.getElementById("vertical");
+  const colLeft = document.getElementById("col_left");
+  const timeln = gsap.timeline({ paused: true });
+
+  timeln.fromTo(colLeft, { y: 0 }, { y: "150vh", duration: 1, ease: "none" });
+
+  // gsap.ticker.add((time) => {
+  //   lenis.raf(time * 1000);
+  // });
+
+  // gsap.ticker.lagSmoothing(0);
+
+  ScrollTrigger.create({
+    animation: timeln,
+    trigger: sectionOne,
+    start: "top top",
+    end: "bottom center ",
+    scrub: true,
+  });
+
+
+  lenis.on("scroll", ScrollTrigger.update);
+
+  gsap.ticker.add((time) => {
+    lenis.raf(time * 1000);
+  });
+
+  gsap.ticker.lagSmoothing(0);
+
+  // const exp = gsap.timeline({
+  //   scrollTrigger: {
+  //     trigger: "#experience",
+  //     start: "top top",
+  //     end: "+=10",
+  //     scrub: true,
+  //     markers: true,
+  //     pin: "#experience",
+  //   },
+  // });
+
+  // exp.to("#experience-middle", {
+  //   "--progress1": 1,
+  //   ease: "none",
+  //   smoothOrigin: true,
+  // });
+  // exp.from(
+  //   "#extraBox",
+  //   {
+  //     scaleX: 0,
+  //     ease: "none",
+  //   },
+  // );
+
+</script>
+
 <Layout title="Mati Canzani-about">
-  <section class="flex justify-center flex-col mt-8 px-60">
-    <div class="flex justify-center items-end" transition:name="who">
-      <h2 class="uppercase text-slate-50 text-[3rem] font-bold z-10 absolute">
-        Who am I ?
-      </h2>
-      <span class="uppercase text-[#33383eab] text-[5rem] font-extrabold">
-        Who am I ?
-      </span>
+  <!-- <Who /> -->
+
+  <section id="vertical" class="h-[150vh] w-screen mt-8">
+    <div class="w-11/12 m-auto">
+      <div class="flex justify-center items-start">
+        <div id="col_left" class="w-1/2 h-full">
+          <div class="vertical_headling">
+            <div
+              class="flex justify-center items-end sticky top-1/3"
+              transition:name="who"
+            >
+              <h2
+                class="uppercase pl-4 border-l-4 border-teal-400 text-[3rem] font-bold z-10 absolute text-slate-50"
+              >
+                Who am I ?
+              </h2>
+              <span
+                class="uppercase pl-4 border-l-4 border-[#33383eab] text-[#33383eab] text-[5rem] font-extrabold"
+              >
+                Who am I ?
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <aside id="col_right" class="w-2/5">
+          <div class="vertical_item mb-60">
+            <h3
+              class="text-3xl uppercase font-extrabold text-shadow-title mt-4 leading-loose text-teal-400"
+            >
+              Digital Works of Art
+            </h3>
+            <p class="px-4 text-slate-50">
+              I'm Mati Canzani, a web developer and problem solver. I craft
+              beautiful, engaging experiences for the digital world. From
+              e-commerce journeys to landing page masterpieces, I weave modern
+              designs and cutting-edge technologies into seamless realities.
+            </p>
+          </div>
+          <div class="vertical_item mb-60">
+            <h3
+              class="text-3xl uppercase font-extrabold text-shadow-title mt-4 leading-loose text-teal-400"
+            >
+              Unraveling Complexity
+            </h3>
+            <p class="px-4 text-slate-50">
+              Challenges are my playground. I relish transforming complex
+              concepts into intuitive interfaces that flow. With every pixel and
+              line of code, I strive to make technology both delightful and
+              user-friendly.
+            </p>
+          </div>
+          <div class="vertical_item mb-60">
+            <h3
+              class="text-3xl uppercase font-extrabold text-shadow-title mt-4 leading-loose text-teal-400"
+            >
+              Beyond the Code
+            </h3>
+            <p class="px-4 text-slate-50">
+              I'm not just a coder. I'm a problem solver, an innovator, a pixel
+              alchemist. My toolbox brims with the latest frameworks, smooth
+              animations, and a relentless pursuit of quality. I deliver
+              polished creations that surpass expectations.
+            </p>
+          </div>
+          <div class="vertical_item">
+            <h3
+              class="text-3xl uppercase font-extrabold text-shadow-title mt-4 leading-loose text-teal-400"
+            >
+              Building Extraordinary Together
+            </h3>
+            <p class="px-4 text-slate-50">
+              Want to build something extraordinary? Let's collaborate. I'm Mati
+              Canzani, and your vision is my canvas. Together, we can turn your
+              ideas into digital realities that resonate.
+            </p>
+          </div>
+        </aside>
+      </div>
     </div>
-
-    <article transition:animate={fade({ duration: "0.6s" })} class="flex justify-center flex-col px-24 gap-4 max-w-5xl mx-auto">
-      <h3 class="text-slate-50 text-  xl my-10 tracking-wide">
-        I'm <spam class="font-extrabold tracking-wide text-2xl">Mati</spam> Canzani, a <spam class="font-extrabold tracking-wide text-2xl">web developer</spam> and problem solver.
-      </h3>
-
-      <p class="text-slate-50 italic font-medium text-xl tracking-wide">
-        I craft beautiful, engaging experiences for the digital world. From
-        e-commerce journeys to landing page masterpieces, I weave modern designs
-        and cutting-edge technologies into seamless realities.
-      </p>
-
-      <p class="text-slate-50 italic font-medium text-xl tracking-wide">
-        Challenges are my playground. I relish transforming complex concepts
-        into intuitive interfaces that flow.
-      </p>
-
-      <p class="text-slate-50 italic font-medium text-xl tracking-wide">
-        I'm not just a <code class="italic">coder</code>. I'm a problem solver, an innovator, a pixel
-        alchemist. My toolbox brims with the latest frameworks, smooth
-        animations, and a relentless pursuit of quality. I deliver polished
-        creations that surpass expectations.
-      </p>
-
-      <p class="text-slate-50 italic font-medium text-xl tracking-wide">
-        Want to build something extraordinary? Let's collaborate. I'm Mati
-        Canzani, and your vision is my canvas.
-      </p>
-      <p class="text-slate-50 font-medium text-xl tracking-wide">
-        <spam class="font-bold tracking-wide">Skills: </spam> Frontend developer, modern design, innovative solutions,
-        cutting-edge technologies, high-quality, collaborative.
-      </p>
-    </article>
   </section>
+  <!-- </article>
+<Marque /> 
+  </section> -->
 </Layout>

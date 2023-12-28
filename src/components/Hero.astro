@@ -9,31 +9,30 @@ import Logo from "./logo/Logo.astro";
 
   gsap.registerPlugin(MotionPathPlugin);
 
-
   gsap.from("#who", {
-    duration: 1,
+    duration: 0.5,
     opacity: 0,
     delay: 2.5,
     ease: "bounce.out",
   });
 
   gsap.from("#works", {
-    duration: 1,
+    duration: 0.5,
     opacity: 0,
     ease: "power2.out", // or another ease
     delay: 3,
   });
 
   gsap.from("#contact", {
-    duration: 1,
+    duration: 0.5,
     opacity: 0,
     ease: "power2.out", // or another ease
     delay: 3.5,
   });
 </script>
 
-<section class="w-full h-screen">
-  <div class="flex flex-row justify-between items-center h-full">
+<section id="section" class="w-screen h-screen px-28">
+  <div class="flex flex-row justify-between w-full items-center h-full">
     <div
       class="flex flex-row justify-center items-center gap-2"
       transition:name="logo"

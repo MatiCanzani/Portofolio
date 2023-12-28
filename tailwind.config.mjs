@@ -15,6 +15,7 @@ export default {
       textShadow: {
         DEFAULT: "3px 5px 0  rgba(51, 56, 62, 0.67)",
         title: "3px 5px 0  rgba(51, 56, 62, 0.67)",
+        lg: '0 8px 16px var(--tw-shadow-color)'
       },
       cursor: {
         circle: "url(../../src/images/icons/circle.svg), pointer",

@@ -1,0 +1,84 @@
+<script>
+  import { gsap } from "gsap";
+
+  let currentScroll = 0;
+  let isScrollingDown = true;
+
+  let tween = gsap
+    .to(".marquee__part", {
+      xPercent: -100,
+      repeat: -1,
+      duration: 10,
+      ease: "linear",
+    })
+    .totalProgress(0.5);
+
+  gsap.set(".marquee__inner", { xPercent: -50 });
+
+  window.addEventListener("scroll", function () {
+    if (scrollY > currentScroll) {
+      isScrollingDown = true;
+    } else {
+      isScrollingDown = false;
+    }
+
+    gsap.to(tween, {
+      timeScale: isScrollingDown ? 1 : -1,
+    });
+
+    currentScroll = window.scrollY;
+  });
+</script>
+
+<div class="flex flex-col">
+  <section class="spacer flex-grow"></section>
+
+  <section class="marquee">
+    <div class="marquee__inner" aria-hidden="true" id="inner">
+      <div class="marquee__part">
+        web developer / E-COMMERCE / LANDING PAGES /
+      </div>
+      <div class="marquee__part">
+        web developer / E-COMMERCE / LANDING PAGES /
+      </div>
+      <div class="marquee__part">
+        web developer / E-COMMERCE / LANDING PAGES /
+      </div>
+      <div class="marquee__part">
+        web developer / E-COMMERCE / LANDING PAGES /
+      </div>
+      <div class="marquee__part">
+        web developer / E-COMMERCE / LANDING PAGES /
+      </div>
+    </div>
+  </section>
+</div>
+<style>
+  .marquee__part {
+    flex-shrink: 0;
+    padding: 0 4px;
+  }
+
+  .marquee {
+    /* background: #3b7fff; */
+    color: #eee;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 3rem;
+    /* padding: 32px 0; */
+    /* overflow: hidden; */
+    bottom: 0;
+  }
+
+  .marquee__inner {
+    -webkit-font-smoothing: antialiased;
+    width: fit-content;
+    display: flex;
+    flex: auto;
+    flex-direction: row;
+  }
+
+  .spacer {
+    height: 150px;
+  }
+</style>
